@@ -7,12 +7,7 @@
 //
 
 import UIKit
-struct Meme {
-    var topText: String
-    var bottomText: String
-    var originalImage: UIImage
-    var memedImage: UIImage
-}
+
 class ViewController: UIViewController, UIImagePickerControllerDelegate,
 UINavigationControllerDelegate, UITextFieldDelegate {
 
@@ -28,32 +23,27 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
-        
-        let memeTextAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.strokeColor: UIColor.black,
-            NSAttributedString.Key.foregroundColor: UIColor.white,
-            NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-            NSAttributedString.Key.strokeWidth: -4.0
-        ]
-        
-        topTF.defaultTextAttributes = memeTextAttributes
-        bottomTF.defaultTextAttributes = memeTextAttributes
-        
-        topTF.textAlignment = .center
-        bottomTF.textAlignment = .center
-        
-        topTF.delegate = self
-        bottomTF.delegate = self
-        
         initUI()
-
+    }
+    
+    func setupTextField(tf: UITextField, text: String) {
+        tf.defaultTextAttributes = [
+            NSAttributedString.Key.foregroundColor : UIColor.white,
+            NSAttributedString.Key.strokeColor : UIColor.black,
+            NSAttributedString.Key.font : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            NSAttributedString.Key.strokeWidth: -4.0,
+        ]
+        tf.textColor = UIColor.white
+        tf.tintColor = UIColor.white
+        tf.textAlignment = .center
+        tf.text = text
+        tf.delegate = self
     }
     
     func initUI(){
-        topTF.text = "TOP"
-        bottomTF.text = "BOTTOM"
+        setupTextField(tf: topTF, text: "TOP")
+        setupTextField(tf: bottomTF, text: "BOTTOM")
         shareBT.isEnabled = false
         imageView.image = nil
     }
