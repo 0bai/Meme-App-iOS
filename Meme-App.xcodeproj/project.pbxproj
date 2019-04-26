@@ -68,8 +68,8 @@
 		2A0AF5C7223C3274007D65A3 /* Meme-App */ = {
 			isa = PBXGroup;
 			children = (
-				2AA15D732270C43E0033632F /* View */,
 				2A0AF5C8223C3274007D65A3 /* AppDelegate.swift */,
+				2AA15D732270C43E0033632F /* View */,
 				2ADF467B2270BC780065D3CA /* Controllers */,
 				2ADF46792270BA050065D3CA /* Storyboards */,
 				2ADF467A2270BA360065D3CA /* Resources */,

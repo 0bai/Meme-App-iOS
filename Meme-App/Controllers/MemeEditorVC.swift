@@ -61,7 +61,9 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         let activityController = UIActivityViewController(activityItems: [generateMemedImage()], applicationActivities: nil)
         
         activityController.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
+            if completed{
             self.save()
+            }
         }
         
         present(activityController, animated: true, completion: nil)
